@@ -1,124 +1,224 @@
-/* ================================
-   TERMINAL TYPING
-================================ */
-const introLines = [
-    "> Initializing system...",
-    "> Verifying identity...",
-    "> Access granted.",
-    "> Loading portfolio interface..."
-];
-
-let line = 0, char = 0;
-
-function typeIntro() {
-    const box = document.querySelector(".typed-text");
-
-    if (line < introLines.length) {
-        if (char < introLines[line].length) {
-            box.textContent += introLines[line].charAt(char);
-            char++;
-            setTimeout(typeIntro, 45);
-        } else {
-            box.textContent += "\n";
-            char = 0;
-            line++;
-            setTimeout(typeIntro, 200);
-        }
-    }
+/* Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Mono", monospace;
 }
 
-window.onload = typeIntro;
-
-/* ================================
-   ENTER BUTTON
-================================ */
-document.getElementById("enter-btn").addEventListener("click", () => {
-
-    const intro = document.getElementById("intro-screen");
-    const panel = document.getElementById("reveal-panel");
-    const site = document.getElementById("site-content");
-
-    intro.style.opacity = "0";
-
-    // Slide panel upward
-    setTimeout(() => {
-        panel.style.transform = "translateY(-100%)";
-    }, 300);
-
-    // Remove intro screen
-    setTimeout(() => {
-        intro.style.display = "none";
-    }, 700);
-
-    // Show site content
-    setTimeout(() => {
-        site.classList.add("show");
-    }, 900);
-
-    // Start rotating titles
-    startRotateTitles();
-});
-
-/* ================================
-   ROTATING TITLES
-================================ */
-const roles = [
-    "Cybersecurity Analyst",
-    "Threat Detection Specialist",
-    "Adversary Logic & Ethical Hacking",
-    "Behavior Analysis",
-    "Defensive Engineering"
-];
-
-let rIndex = 0, rChar = 0;
-
-function startRotateTitles() {
-    const t = document.getElementById("dynamic-text");
-    const role = roles[rIndex];
-
-    if (rChar < role.length) {
-        t.textContent += role.charAt(rChar);
-        rChar++;
-        setTimeout(startRotateTitles, 60);
-    } else {
-        setTimeout(() => {
-            t.textContent = "";
-            rChar = 0;
-            rIndex = (rIndex + 1) % roles.length;
-            startRotateTitles();
-        }, 1200);
-    }
+body {
+    background: #000;
+    color: #00ff99;
+    overflow-x: hidden;
 }
 
-/* ================================
-   FADE SECTIONS
-================================ */
-const fadeSections = document.querySelectorAll(".fade-section");
+/* Intro screen */
+#intro-screen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
 
-const obs = new IntersectionObserver(
-    entries => entries.forEach(e => e.isIntersecting && e.target.classList.add("visible")),
-    { threshold: 0.55 }
-);
+.typed-text {
+    color: #00ff99;
+    font-size: 1.4rem;
+    white-space: pre-line;
+}
 
-fadeSections.forEach(s => obs.observe(s));
+.enter-btn {
+    margin-top: 50px;
+    padding: 14px 40px;
+    border: 2px solid #00ff99;
+    background: transparent;
+    color: #00ff99;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: 0.3s;
+    opacity: 0;
+    pointer-events: none;
+}
 
-/* ================================
-   MODAL SYSTEM
-================================ */
-document.querySelectorAll(".project-card").forEach(card => {
-    card.addEventListener("click", () => {
-        document.getElementById(card.dataset.modal).style.display = "flex";
-    });
-});
+.enter-btn:hover {
+    background: #00ff99;
+    color: #000;
+}
 
-document.querySelectorAll(".close-modal").forEach(btn => {
-    btn.addEventListener("click", () => {
-        btn.closest(".modal").style.display = "none";
-    });
-});
+/* Reveal panel */
+#reveal-panel {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9000;
+    transform: translateY(100%);
+    transition: 1.1s ease-in-out;
+}
 
-window.addEventListener("click", e => {
-    document.querySelectorAll(".modal").forEach(m => {
-        if (e.target === m) m.style.display = "none";
-    });
-});
+/* Site content hidden until reveal */
+#site-content {
+    opacity: 0;
+    transition: opacity 0.8s;
+}
+
+#site-content.show {
+    opacity: 1;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(5px);
+    z-index: 50;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ff99;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #00ff99;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.resume-btn {
+    padding: 8px 20px;
+    border: 2px solid #00ff99;
+    color: #00ff99;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.resume-btn:hover {
+    background: #00ff99;
+    color: #000;
+}
+
+/* HERO */
+#hero {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.hero-name {
+    font-size: 3.6rem;
+    margin-bottom: 20px;
+}
+
+.hero-role {
+    font-size: 1.8rem;
+    color: #99ffd9;
+}
+
+/* Sections */
+.snap-section {
+    min-height: calc(100vh - 80px);
+    padding: 80px 8% 60px;
+}
+
+.section-title {
+    font-size: 2.6rem;
+    margin-bottom: 25px;
+}
+
+/* About text */
+#about p {
+    line-height: 1.6;
+    white-space: pre-line;
+    font-size: 1.2rem;
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.skill-box {
+    padding: 25px;
+    border: 2px solid #00ff99;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.3rem;
+    transition: 0.3s;
+}
+
+.skill-box:hover {
+    background: #00ff99;
+    color: #000;
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    padding: 30px;
+    border: 2px solid #00ff99;
+    border-radius: 10px;
+    background: #050505;
+}
+
+/* Contact buttons */
+.contact-buttons {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.contact-btn {
+    padding: 14px 35px;
+    border: 2px solid #00ff99;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #00ff99;
+    font-size: 1.3rem;
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    background: #00ff99;
+    color: #000;
+}
+
+/* Fade-in animation */
+.fade-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
