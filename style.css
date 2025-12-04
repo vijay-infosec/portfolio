@@ -1,18 +1,13 @@
-/* ===========================================================
-   GLOBAL TOKENS
-   =========================================================== */
 :root {
     --green: #00ff88;
     --bg: #0a0a0a;
-    --card: #0f0f0f;
     --text: #e0e0e0;
+    --card: #0f0f0f;
     --radius: 6px;
     --transition: 0.3s ease;
 }
 
-/* ===========================================================
-   BASE
-   =========================================================== */
+/* BODY */
 body {
     margin: 0;
     background: var(--bg);
@@ -21,7 +16,6 @@ body {
     line-height: 1.6;
 }
 
-/* Grid background */
 body::before {
     content: "";
     position: fixed;
@@ -30,13 +24,11 @@ body::before {
         linear-gradient(#0f0f0f 1px, transparent 1px),
         linear-gradient(90deg, #0f0f0f 1px, transparent 1px);
     background-size: 40px 40px;
-    opacity: 0.15;
+    opacity: 0.17;
     z-index: -1;
 }
 
-/* ===========================================================
-   NAVBAR
-   =========================================================== */
+/* NAVBAR */
 .navbar {
     position: fixed;
     top: 0;
@@ -44,7 +36,7 @@ body::before {
     background: rgba(10,10,10,0.95);
     border-bottom: 1px solid #111;
     padding: 10px 0;
-    z-index: 1000;
+    z-index: 999;
 }
 
 .nav-container {
@@ -58,11 +50,11 @@ body::before {
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
-    text-decoration: none;
     color: var(--green);
-    cursor: pointer;
+    text-decoration: none;
 }
 
+/* NAV LINKS */
 .nav-links {
     display: flex;
     list-style: none;
@@ -79,26 +71,24 @@ body::before {
     color: var(--green);
 }
 
-/* ===========================================================
-   HERO SECTION
-   =========================================================== */
+/* HERO */
 .hero {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 60px;
     text-align: center;
-    padding: 90px 10% 0;
 }
 
 .terminal {
     font-family: monospace;
     color: var(--green);
     white-space: pre-line;
-    min-height: 110px;
-    margin-bottom: 20px;
+    min-height: 120px;
 }
 
+/* CURSOR */
 .cursor {
     animation: blink 0.8s infinite;
 }
@@ -108,11 +98,15 @@ body::before {
     50% { opacity: 0; }
 }
 
-/* hidden elements for reveal */
+/* HIDDEN ANIMATION */
+.hidden {
+    opacity: 0;
+}
+
 .hero-hidden {
     opacity: 0;
-    transform: translateY(20px);
-    transition: 0.6s ease;
+    transform: translateY(12px);
+    transition: 0.5s ease;
 }
 
 .show {
@@ -120,26 +114,27 @@ body::before {
     transform: translateY(0) !important;
 }
 
+/* NAME */
 .name {
     font-size: 3rem;
     color: var(--green);
-    margin: 10px 0;
 }
 
+/* ROTATING TITLES */
 .rotating-title {
     font-size: 1.4rem;
     margin-top: 15px;
     color: var(--green);
 }
 
-/* HERO BUTTONS */
+/* BUTTONS */
 .btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 12px 28px;
     border: 1px solid var(--green);
-    color: var(--green);
     border-radius: var(--radius);
     text-decoration: none;
+    color: var(--green);
     margin-top: 20px;
     transition: var(--transition);
 }
@@ -149,13 +144,7 @@ body::before {
     color: black;
 }
 
-.resume-btn {
-    margin-top: 20px;
-}
-
-/* ===========================================================
-   SECTIONS
-   =========================================================== */
+/* SECTIONS */
 .section {
     padding: 80px 10%;
 }
@@ -166,43 +155,39 @@ body::before {
     margin-bottom: 20px;
 }
 
-/* ===========================================================
-   SKILLS
-   =========================================================== */
+/* SKILLS */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
     gap: 20px;
 }
 
 .skill {
+    background: var(--card);
     padding: 15px;
     text-align: center;
-    background: var(--card);
-    border: 1px solid var(--green);
     border-radius: var(--radius);
+    border: 1px solid var(--green);
     transition: var(--transition);
 }
 
 .skill:hover {
     background: var(--green);
-    color: var(--bg);
+    color: black;
 }
 
-/* ===========================================================
-   PROJECTS
-   =========================================================== */
+/* PROJECTS */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
     gap: 25px;
 }
 
 .project-card {
     background: var(--card);
-    border: 1px solid var(--green);
     padding: 20px;
     border-radius: var(--radius);
+    border: 1px solid var(--green);
     transition: var(--transition);
 }
 
@@ -211,23 +196,17 @@ body::before {
     color: black;
 }
 
-.project-card:hover h3 {
-    color: black;
-}
-
-/* ===========================================================
-   CONTACT
-   =========================================================== */
+/* CONTACT BUTTONS */
 .contact-buttons {
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .contact-btn {
+    border: 1px solid var(--green);
     padding: 12px 30px;
     border-radius: var(--radius);
-    border: 1px solid var(--green);
     text-decoration: none;
     color: var(--green);
     transition: var(--transition);
@@ -238,11 +217,9 @@ body::before {
     color: black;
 }
 
-/* ===========================================================
-   FOOTER
-   =========================================================== */
+/* FOOTER */
 footer {
     text-align: center;
-    padding: 20px;
-    color: #777;
+    padding: 25px;
+    color: #888;
 }
