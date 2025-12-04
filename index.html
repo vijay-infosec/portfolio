@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vijay Prathap Reddy | Cybersecurity Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <header id="hero" class="hero">
         <div class="hero-content">
 
@@ -34,10 +34,10 @@
                 </p>
             </div>
 
-            <!-- ENTER BUTTON (shown after terminal finishes) -->
+            <!-- ENTER BUTTON (hidden until terminal finishes) -->
             <a id="enter-btn" class="btn hidden">Enter Portfolio</a>
 
-            <!-- MAIN HERO CONTENT (revealed after enter) -->
+            <!-- REVEALED AFTER CLICK -->
             <h1 class="name hero-hidden">Vijay Prathap Reddy</h1>
 
             <h2 class="rotating-title hero-hidden">
@@ -48,7 +48,6 @@
                class="btn resume-btn hero-hidden" target="_blank">
                Download Resume
             </a>
-
         </div>
     </header>
 
@@ -84,17 +83,17 @@
         <div class="projects-grid">
             <div class="project-card">
                 <h3>Rogue Switch Detection System</h3>
-                <p>Lightweight detection framework using behavioural anomalies and MAC mapping irregularities.</p>
+                <p>Lightweight detection framework using behavioural anomalies and MAC mapping.</p>
             </div>
 
             <div class="project-card">
-                <h3>IoT Security Attack Simulation</h3>
-                <p>Simulated IoT attacks to analyse adversary movement and build layered defences.</p>
+                <h3>IoT Security Simulation</h3>
+                <p>Simulated IoT attacks to analyse adversary movement and defensive layering.</p>
             </div>
 
             <div class="project-card">
-                <h3>AI Driven Defense Model</h3>
-                <p>Machine learning anomaly detector for early-stage attack identification.</p>
+                <h3>AI Defense Model</h3>
+                <p>Machine learning anomaly detection for early-stage intrusion recognition.</p>
             </div>
         </div>
     </section>
@@ -114,10 +113,9 @@
         <p>© 2025 Vijay Prathap Reddy — Cybersecurity Portfolio</p>
     </footer>
 
-
-    <!-- JS -->
+    <!-- JAVASCRIPT -->
     <script>
-        /* TERMINAL TYPING ANIMATION */
+        /* TERMINAL TYPING */
         const lines = [
             "> Initializing system...",
             "> Verifying identity...",
@@ -132,61 +130,61 @@
             const typed = document.querySelector(".typed-text");
 
             if (lineIndex < lines.length) {
-                const currentLine = lines[lineIndex];
+                let current = lines[lineIndex];
 
-                if (charIndex < currentLine.length) {
-                    typed.textContent += currentLine.charAt(charIndex);
+                if (charIndex < current.length) {
+                    typed.textContent += current.charAt(charIndex);
                     charIndex++;
                     setTimeout(typeLine, 50);
                 } else {
                     typed.textContent += "\n";
-                    lineIndex++;
                     charIndex = 0;
-                    setTimeout(typeLine, 300);
+                    lineIndex++;
+                    setTimeout(typeLine, 250);
                 }
             } else {
                 setTimeout(() => {
                     document.getElementById("terminal-block").style.display = "none";
                     document.getElementById("enter-btn").classList.add("show");
-                }, 500);
+                }, 400);
             }
         }
-        window.onload = () => typeLine();
+        window.onload = typeLine;
 
-
-        /* ENTER PORTFOLIO BUTTON → REVEAL HERO CONTENT */
+        /* ENTER BUTTON CLICK → SHOW HERO CONTENT */
         document.getElementById("enter-btn").addEventListener("click", () => {
             document.getElementById("enter-btn").style.display = "none";
-            document.querySelectorAll(".hero-hidden").forEach(el => el.classList.add("show"));
+            document.querySelectorAll(".hero-hidden").forEach(el => {
+                el.classList.add("show");
+            });
             startRotation();
         });
 
-
-        /* ROTATING TITLE TYPING EFFECT */
-        const titles = [
+        /* ROTATING TITLES */
+        const roles = [
             "Cybersecurity Analyst",
             "Threat Detection Specialist",
-            "Ethical Hacking & Adversary Analysis",
+            "Adversary Logic & Ethical Hacking",
             "Digital Behavior Analysis",
             "Defensive Engineering"
         ];
 
-        let titleIndex = 0;
-        let titleCharIndex = 0;
+        let rIndex = 0;
+        let rChar = 0;
 
         function startRotation() {
-            const textSpan = document.getElementById("dynamic-text");
-            const current = titles[titleIndex];
+            const target = document.getElementById("dynamic-text");
+            let current = roles[rIndex];
 
-            if (titleCharIndex < current.length) {
-                textSpan.textContent += current.charAt(titleCharIndex);
-                titleCharIndex++;
+            if (rChar < current.length) {
+                target.textContent += current.charAt(rChar);
+                rChar++;
                 setTimeout(startRotation, 60);
             } else {
                 setTimeout(() => {
-                    textSpan.textContent = "";
-                    titleCharIndex = 0;
-                    titleIndex = (titleIndex + 1) % titles.length;
+                    target.textContent = "";
+                    rChar = 0;
+                    rIndex = (rIndex + 1) % roles.length;
                     startRotation();
                 }, 1200);
             }
