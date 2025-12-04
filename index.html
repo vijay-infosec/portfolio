@@ -1,132 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vijay Prathap Reddy | Cybersecurity Portfolio</title>
-    <link rel="stylesheet" href="style.css?v=999">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijay Prathap Reddy — Cybersecurity Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script defer src="script.js"></script>
 </head>
 
 <body>
 
-    <!-- INTRO SCREEN -->
-    <div id="intro-screen">
-        <p class="terminal">
-            <span class="typed-text"></span><span class="cursor">_</span>
-        </p>
-        <button id="enter-btn" class="enter-btn">Enter Portfolio</button>
-    </div>
+<!-- ███████████████████████████████████████████ -->
+<!-- TERMINAL INTRO SCREEN -->
+<!-- ███████████████████████████████████████████ -->
 
-    <!-- REVEAL PANEL (UPWARD SLIDE) -->
-    <div id="reveal-panel"></div>
+<div id="intro-screen">
+    <pre class="typed-text"></pre>
+    <button id="enter-btn" class="enter-btn">Enter Portfolio</button>
+</div>
+
+<!-- Reveal panel -->
+<div id="reveal-panel"></div>
+
+
+<!-- ███████████████████████████████████████████ -->
+<!-- ACTUAL SITE CONTENT -->
+<!-- ███████████████████████████████████████████ -->
+
+<div id="site-content">
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="logo">V</a>
+        <div class="logo" onclick="window.scrollTo({ top:0, behavior:'smooth'});">V</div>
 
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
 
-            <a href="https://raw.githubusercontent.com/vijay-infosec/portfolio/main/Resume.pdf"
-               class="nav-resume-btn" target="_blank">Resume</a>
-        </div>
+        <a href="https://raw.githubusercontent.com/vijay-infosec/portfolio/main/Resume.pdf" 
+           target="_blank" class="resume-btn">Resume</a>
     </nav>
 
-    <!-- SITE CONTENT (HIDDEN INITIALLY) -->
-    <div id="site-content">
 
-        <section id="hero" class="section snap-section fade-section">
-            <h1 class="name">Vijay Prathap Reddy</h1>
-            <h2 class="rotating-title"><span id="dynamic-text"></span><span class="cursor">_</span></h2>
-        </section>
+    <!-- HERO SECTION -->
+    <section id="hero" class="snap-section fade-section">
+        <h1 class="hero-name">Vijay Prathap Reddy</h1>
+        <h2 class="hero-role"><span id="dynamic-text"></span></h2>
+    </section>
 
-        <section id="about" class="section snap-section fade-section">
-            <h2 class="section-title">About Me</h2>
 
-            <p>Cybersecurity didn’t start for me…</p>
-            <p>The more I analysed events…</p>
-            <p>Exploring attacker perspective…</p>
-            <p>Working with malware sharpened this mindset…</p>
-            <p>Over time, I began focusing on defense structures…</p>
-            <p>Today, cybersecurity is not just something I enjoy…</p>
-        </section>
+    <!-- ABOUT ME -->
+    <section id="about" class="snap-section fade-section">
+        <h2 class="section-title">About Me</h2>
 
-        <section id="skills" class="section snap-section fade-section">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill">Threat Detection</div>
-                <div class="skill">Malware Analysis</div>
-                <div class="skill">Penetration Testing</div>
-                <div class="skill">Network Security</div>
-                <div class="skill">Behavior Analysis</div>
-                <div class="skill">Python Automation</div>
+        <p>
+Cybersecurity didn’t start for me as a hobby or a random interest. It became a discipline the moment I realised how much can hide behind systems that appear perfectly normal. Early on, I learned that digital behaviour is rarely random. Every pattern has a cause, every inconsistency has a story, and every small detail can expose something far larger if you know how to read it.
+
+The more I analysed events and behaviour, the faster I understood that threats do not announce themselves. They blend in. They mimic legitimacy. They rely on people not paying attention. That pushed me to look deeper, to question everything that felt slightly out of place, and to treat every anomaly like a thread worth pulling.
+
+Exploring the attacker’s perspective was a natural next step. I wanted to see how intrusions unfold from the inside, how attackers think, and why certain techniques are so effective. Recreating attacks in controlled environments changed everything. Once you understand the intention behind an exploit, recognising early indicators becomes second nature. You stop reacting and start anticipating.
+
+Working with malware sharpened this mindset even further. While building analysis labs for students, I watched harmless looking files unravel into aggressive behaviour the moment you examined them properly. It taught me not to trust anything based on appearance and to rely on behaviour, correlation, and proof. That lesson stays with me in everything I analyse.
+
+Over time, I began focusing on defense structures that do not just detect threats but understand them. I started modelling irregular behaviour, analysing flow patterns, and building lightweight AI driven frameworks designed to expose inconsistencies before they turn into incidents. These systems are built on one idea: defense should never wait to be surprised.
+
+Today, cybersecurity is not just something I enjoy. It is how I think. Whether I am breaking something safely to understand its weakness, dissecting a subtle pattern, or building a smarter defensive mechanism, I approach every problem with the same mindset: stay curious, stay critical, and never accept surface level answers. My goal is simple: build environments that attackers cannot hide in.
+        </p>
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills" class="snap-section fade-section">
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills-grid">
+            <div class="skill-box">Threat Detection</div>
+            <div class="skill-box">Malware Analysis</div>
+            <div class="skill-box">Penetration Testing</div>
+            <div class="skill-box">Network Security</div>
+            <div class="skill-box">Behavior Analysis</div>
+            <div class="skill-box">Python Automation</div>
+        </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects" class="snap-section fade-section">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Rogue Switch Detection</h3>
+                <p>AI-assisted anomaly detection.</p>
             </div>
-        </section>
 
-        <section id="projects" class="section snap-section fade-section">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-
-                <div class="project-card" data-modal="modal1">
-                    <h3>Rogue Switch Detection</h3>
-                    <p>AI-assisted anomaly detection.</p>
-                </div>
-
-                <div class="project-card" data-modal="modal2">
-                    <h3>IoT Attack Simulation</h3>
-                    <p>ESP32 exploitation.</p>
-                </div>
-
-                <div class="project-card" data-modal="modal3">
-                    <h3>AI Defense Model</h3>
-                    <p>ML anomaly detection.</p>
-                </div>
-
+            <div class="project-card">
+                <h3>IoT Attack Simulation</h3>
+                <p>ESP32 exploitation.</p>
             </div>
-        </section>
 
-        <section id="tools" class="section snap-section fade-section">
-            <h2 class="section-title">Tools</h2>
-            <div class="tools-grid">
-                <div class="tool">Python</div>
-                <div class="tool">Nmap</div>
-                <div class="tool">Linux</div>
-                <div class="tool">Metasploit</div>
-                <div class="tool">Burp Suite</div>
-                <div class="tool">Wireshark</div>
+            <div class="project-card">
+                <h3>AI Defense Model</h3>
+                <p>ML anomaly detection.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="section snap-section fade-section">
-            <h2 class="section-title">Contact</h2>
 
-            <p><strong>Phone:</strong> +1 616-500-4832</p>
-            <p><strong>Email:</strong> vijayreddypr999@gmail.com</p>
+    <!-- CONTACT -->
+    <section id="contact" class="snap-section fade-section">
+        <h2 class="section-title">Contact</h2>
 
-            <div class="contact-buttons-small">
-                <a href="https://linkedin.com/in/vijay-prathap-reddy" target="_blank" class="contact-mini-btn">LinkedIn</a>
-                <a href="https://github.com/vijay-infosec" target="_blank" class="contact-mini-btn">GitHub</a>
-            </div>
-        </section>
+        <div class="contact-buttons">
+            <a href="tel:+16165004832" class="contact-btn">Call</a>
+            <a href="mailto:vijayreddypr999@gmail.com" class="contact-btn">Email</a>
+            <a href="https://linkedin.com/in/vijay-prathap-reddy" target="_blank" class="contact-btn">LinkedIn</a>
+            <a href="https://github.com/vijay-infosec" target="_blank" class="contact-btn">GitHub</a>
+        </div>
+    </section>
 
-        <footer>
-            <p>© 2025 Vijay Prathap Reddy — Cybersecurity Portfolio</p>
-        </footer>
+</div>
 
-    </div>
-
-    <!-- MODALS -->
-    <div id="modal1" class="modal"><div class="modal-box"><h3>Rogue Switch Detection</h3><p>Details…</p><button class="close-modal">Close</button></div></div>
-    <div id="modal2" class="modal"><div class="modal-box"><h3>IoT Simulation</h3><p>Details…</p><button class="close-modal">Close</button></div></div>
-    <div id="modal3" class="modal"><div class="modal-box"><h3>AI Model</h3><p>Details…</p><button class="close-modal">Close</button></div></div>
-
-    <script src="script.js?v=999"></script>
 </body>
 </html>
