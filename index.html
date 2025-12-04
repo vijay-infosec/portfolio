@@ -12,7 +12,7 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">VPR</div>
+            <a href="#hero" class="logo">V</a>
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -26,17 +26,29 @@
     <!-- HERO -->
     <header id="hero" class="hero">
         <div class="hero-content">
-            <p class="terminal">
-                <span class="typed-text"></span><span class="cursor">_</span>
-            </p>
 
-            <h1 class="name hidden">Vijay Prathap Reddy</h1>
+            <!-- TERMINAL INTRO -->
+            <div id="terminal-block">
+                <p class="terminal">
+                    <span class="typed-text"></span><span class="cursor">_</span>
+                </p>
+            </div>
 
-            <h2 class="tagline hidden">
-                Cybersecurity Analyst | Threat Detection | Ethical Hacking | Digital Behavior Analysis | Adversary Logic | Defensive Engineering
+            <!-- ENTER BUTTON (shown after terminal finishes) -->
+            <a id="enter-btn" class="btn hidden">Enter Portfolio</a>
+
+            <!-- MAIN HERO CONTENT (revealed after enter) -->
+            <h1 class="name hero-hidden">Vijay Prathap Reddy</h1>
+
+            <h2 class="rotating-title hero-hidden">
+                <span id="dynamic-text"></span><span class="cursor">_</span>
             </h2>
 
-            <a href="#about" class="btn hidden">Enter Portfolio</a>
+            <a href="https://raw.githubusercontent.com/vijay-infosec/portfolio/main/Resume.pdf"
+               class="btn resume-btn hero-hidden" target="_blank">
+               Download Resume
+            </a>
+
         </div>
     </header>
 
@@ -44,29 +56,12 @@
     <section id="about" class="section">
         <h2 class="section-title">About Me</h2>
 
-        <p>
-            Cybersecurity didn’t start for me as a hobby or a random interest. It became a discipline the moment I realised how much can hide behind systems that appear perfectly normal. Early on, I learned that digital behaviour is rarely random. Every pattern has a cause, every inconsistency has a story, and every small detail can expose something far larger if you know how to read it.
-        </p>
-
-        <p>
-            The more I analysed events and behaviour, the faster I understood that threats do not announce themselves. They blend in. They mimic legitimacy. They rely on people not paying attention. That pushed me to look deeper, to question everything that felt slightly out of place, and to treat every anomaly like a thread worth pulling.
-        </p>
-
-        <p>
-            Exploring the attacker’s perspective was a natural next step. I began recreating attacks in controlled environments, experimenting with exploitation techniques, and studying the mindset behind offensive strategies. Once you understand the intention behind an exploit, recognising early indicators becomes second nature. You stop reacting and start anticipating.
-        </p>
-
-        <p>
-            Working with malware sharpened this mindset even further. While creating analysis labs for students, I watched harmless looking files unravel into aggressive behaviour the moment they were examined properly. It taught me not to trust anything based on appearance and to rely on behaviour, correlation, and proof.
-        </p>
-
-        <p>
-            Over time, I began focusing on defence structures that do not just detect threats but understand them. Modelling irregular behaviour, analysing flow patterns, and building lightweight AI driven frameworks helped me create systems designed to expose inconsistencies before they escalate.
-        </p>
-
-        <p>
-            Today, cybersecurity is not just something I enjoy. It is how I think. Whether I am dissecting a subtle pattern or building a smarter defensive mechanism, I approach every problem with the same mindset: stay curious, stay critical, and never accept surface level answers.
-        </p>
+        <p>Cybersecurity didn’t start for me as a hobby or a random interest. It became a discipline the moment I realised how much can hide behind systems that appear perfectly normal...</p>
+        <p>The more I analysed events and behaviour, the faster I understood that threats do not announce themselves...</p>
+        <p>Exploring the attacker’s perspective was a natural next step...</p>
+        <p>Working with malware sharpened this mindset even further...</p>
+        <p>Over time, I began focusing on defence structures...</p>
+        <p>Today, cybersecurity is not just something I enjoy...</p>
     </section>
 
     <!-- SKILLS -->
@@ -87,22 +82,20 @@
         <h2 class="section-title">Projects</h2>
 
         <div class="projects-grid">
-
             <div class="project-card">
                 <h3>Rogue Switch Detection System</h3>
-                <p>Lightweight detection framework using behavioural anomalies, MAC mapping irregularities, and automated alerts to identify rogue switches and devices.</p>
+                <p>Lightweight detection framework using behavioural anomalies and MAC mapping irregularities.</p>
             </div>
 
             <div class="project-card">
                 <h3>IoT Security Attack Simulation</h3>
-                <p>Simulated attacks on ESP32 IoT devices to study adversary techniques and build layered defences for constrained environments.</p>
+                <p>Simulated IoT attacks to analyse adversary movement and build layered defences.</p>
             </div>
 
             <div class="project-card">
                 <h3>AI Driven Defense Model</h3>
-                <p>Developed machine learning based anomaly detection methods to recognise unusual flow patterns and early-stage attacks.</p>
+                <p>Machine learning anomaly detector for early-stage attack identification.</p>
             </div>
-
         </div>
     </section>
 
@@ -110,10 +103,10 @@
     <section id="contact" class="section">
         <h2 class="section-title">Contact</h2>
 
-        <div class="contact-box">
-            <p>Email: <a href="mailto:vijayreddypr999@gmail.com">vijayreddypr999@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/vijay-prathap-reddy">linkedin.com/in/vijay-prathap-reddy</a></p>
-            <p>GitHub: <a href="https://github.com">github.com</a></p>
+        <div class="contact-buttons">
+            <a href="tel:+910000000000" class="btn contact-btn">Call Me</a>
+            <a href="https://linkedin.com/in/vijay-prathap-reddy" target="_blank" class="btn contact-btn">LinkedIn</a>
+            <a href="https://github.com/vijay-infosec" target="_blank" class="btn contact-btn">GitHub</a>
         </div>
     </section>
 
@@ -121,8 +114,10 @@
         <p>© 2025 Vijay Prathap Reddy — Cybersecurity Portfolio</p>
     </footer>
 
-    <!-- TERMINAL JS -->
+
+    <!-- JS -->
     <script>
+        /* TERMINAL TYPING ANIMATION */
         const lines = [
             "> Initializing system...",
             "> Verifying identity...",
@@ -150,15 +145,52 @@
                     setTimeout(typeLine, 300);
                 }
             } else {
-                document.querySelectorAll(".hidden").forEach(el => {
-                    el.classList.add("show");
-                });
+                setTimeout(() => {
+                    document.getElementById("terminal-block").style.display = "none";
+                    document.getElementById("enter-btn").classList.add("show");
+                }, 500);
             }
         }
+        window.onload = () => typeLine();
 
-        window.onload = () => {
-            typeLine();
-        };
+
+        /* ENTER PORTFOLIO BUTTON → REVEAL HERO CONTENT */
+        document.getElementById("enter-btn").addEventListener("click", () => {
+            document.getElementById("enter-btn").style.display = "none";
+            document.querySelectorAll(".hero-hidden").forEach(el => el.classList.add("show"));
+            startRotation();
+        });
+
+
+        /* ROTATING TITLE TYPING EFFECT */
+        const titles = [
+            "Cybersecurity Analyst",
+            "Threat Detection Specialist",
+            "Ethical Hacking & Adversary Analysis",
+            "Digital Behavior Analysis",
+            "Defensive Engineering"
+        ];
+
+        let titleIndex = 0;
+        let titleCharIndex = 0;
+
+        function startRotation() {
+            const textSpan = document.getElementById("dynamic-text");
+            const current = titles[titleIndex];
+
+            if (titleCharIndex < current.length) {
+                textSpan.textContent += current.charAt(titleCharIndex);
+                titleCharIndex++;
+                setTimeout(startRotation, 60);
+            } else {
+                setTimeout(() => {
+                    textSpan.textContent = "";
+                    titleCharIndex = 0;
+                    titleIndex = (titleIndex + 1) % titles.length;
+                    startRotation();
+                }, 1200);
+            }
+        }
     </script>
 
 </body>
