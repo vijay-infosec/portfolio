@@ -27,7 +27,6 @@
 <nav id="navbar">
     <div class="logo">V</div>
 
-    <!-- DESKTOP MENU -->
     <ul class="nav-links desktop-menu">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -36,18 +35,14 @@
         <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <!-- RESUME BUTTON -->
     <a href="Resume.pdf" target="_blank" class="resume-btn desktop-menu">Resume</a>
 
-    <!-- MOBILE MENU ICON -->
     <div id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
     </div>
 </nav>
 
-<!-- MOBILE MENU DROPDOWN -->
+<!-- MOBILE MENU -->
 <div id="mobile-menu">
     <a href="#hero">Home</a>
     <a href="#about">About</a>
@@ -57,7 +52,7 @@
     <a href="Resume.pdf" target="_blank">Resume</a>
 </div>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <header id="hero">
     <h1 class="hero-name">Vijay Prathap Reddy</h1>
     <h2 class="hero-role"><span id="typed-role"></span><span class="cursor">█</span></h2>
@@ -67,17 +62,12 @@
 <section id="about">
     <h2>About Me</h2>
     <p>
-Cybersecurity didn’t start for me as a hobby or a random interest. It became a discipline the moment I realised how much can hide behind systems that appear perfectly normal. Early on, I learned that digital behaviour is rarely random. Every pattern has a cause, every inconsistency has a story, and every small detail can expose something far larger if you know how to read it.
+Cybersecurity didn’t start for me as a hobby. It became a discipline when I realised how much can hide behind systems that look normal. Patterns, inconsistencies, and behavioural shifts always point to something deeper, and that changed how I analyse digital environments.
 
-The more I analysed events and behaviour, the faster I understood that threats do not announce themselves. They blend in. They mimic legitimacy. They rely on people not paying attention. That pushed me to look deeper, to question everything that felt slightly out of place, and to treat every anomaly like a thread worth pulling.
+Threats rarely announce themselves—they mimic legitimacy and rely on people not paying attention. That pushed me to examine behaviour critically and treat every anomaly as a signal worth tracing. Working with malware strengthened this mindset: files that appear harmless can behave aggressively when examined closely, teaching me to trust behaviour over appearance.
 
-Exploring the attacker’s perspective was a natural next step. I wanted to see how intrusions unfold from the inside, how attackers think, and why certain techniques are so effective. Recreating attacks in controlled environments changed everything. Once you understand the intention behind an exploit, recognising early indicators becomes second nature. You stop reacting and start anticipating.
-
-Working with malware sharpened this mindset even further. While building analysis labs for students, I watched harmless looking files unravel into aggressive behaviour the moment you examined them properly. It taught me not to trust anything based on appearance and to rely on behaviour, correlation, and proof. That lesson stays with me in everything I analyse.
-
-Over time, I began focusing on defence structures that do not just detect threats but understand them. I started modelling irregular behaviour, analysing flow patterns, and building lightweight AI driven frameworks designed to expose inconsistencies before they turn into incidents. These systems are built on one idea: defence should never wait to be surprised.
-
-Today, cybersecurity is not just something I enjoy. It is how I think. Whether I am breaking something safely to understand its weakness, dissecting a subtle pattern, or building a smarter defensive mechanism, I approach every problem with the same mindset: stay curious, stay critical, and never accept surface level answers. My goal is simple: build environments that attackers cannot hide in.    </p>
+Today, I focus on defensive mechanisms that understand threats, not just detect them. I model irregular patterns, analyse flow behaviour, and build lightweight AI-driven frameworks designed to expose inconsistencies early. Whether dissecting suspicious activity or designing smarter detection rules, I approach everything with one principle: stay curious, stay critical, and never accept surface-level answers.
+    </p>
 </section>
 
 <!-- SKILLS -->
@@ -97,9 +87,27 @@ Today, cybersecurity is not just something I enjoy. It is how I think. Whether I
 <section id="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
-        <div class="project-card"><h3>Rogue Switch Detection</h3><p>AI-assisted anomaly detection.</p></div>
-        <div class="project-card"><h3>IoT Attack Simulation</h3><p>ESP32 exploitation.</p></div>
-        <div class="project-card"><h3>AI Defense Model</h3><p>ML anomaly detection.</p></div>
+
+        <a class="project-card" href="https://github.com/vijay-infosec/rogue-switch-Device-detection-LAN" target="_blank">
+            <h3>Rogue Switch & Device Detection (ECCWS 2025)</h3>
+            <p>Research-backed anomaly detection using L2 behaviour, ARP integrity checks & ML classification.</p>
+        </a>
+
+        <a class="project-card" href="https://github.com/vijay-infosec/phishing-email-detection-ML" target="_blank">
+            <h3>Phishing Email Detection (ML)</h3>
+            <p>99% accurate LR/RF phishing classifier using TF-IDF and advanced feature engineering.</p>
+        </a>
+
+        <a class="project-card" href="https://github.com/vijay-infosec/Malware-Analysis-Labs" target="_blank">
+            <h3>Malware Analysis Labs</h3>
+            <p>Static & dynamic analysis of malware using ProcMon, Wireshark, FLARE-VM & sandboxing.</p>
+        </a>
+
+        <a class="project-card" href="https://github.com/vijay-infosec/Splunk-Log-Forwarding" target="_blank">
+            <h3>Linux Log Forwarding to Splunk</h3>
+            <p>Configured Splunk UF to monitor, transmit & validate system logs for SIEM ingestion.</p>
+        </a>
+
     </div>
 </section>
 
