@@ -84,14 +84,16 @@ function deleteRole() {
 
 typeRole();
 
-/* MOBILE MENU LOGIC */
+/* MOBILE MENU */
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
 
 hamburger.addEventListener("click", () => {
-    if (mobileMenu.style.display === "flex") {
-        mobileMenu.style.display = "none";
-    } else {
-        mobileMenu.style.display = "flex";
-    }
+    mobileMenu.style.display =
+        mobileMenu.style.display === "flex" ? "none" : "flex";
+});
+
+/* SCROLL TO TOP ON LOGO CLICK */
+document.querySelector(".logo").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
 });
