@@ -11,7 +11,6 @@ body {
     overflow-x: hidden;
 }
 
-/* TERMINAL INTRO */
 #terminal-screen {
     position: fixed;
     top: 0;
@@ -23,7 +22,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 40px;
+    align-items: center;   /* ✅ Centers horizontally */
+    padding-left: 0;       /* ❗ Remove left offset */
 }
 
 #terminal-text p {
@@ -50,6 +50,8 @@ body {
     animation: fadeIn 1.4s forwards;
     animation-delay: 3s;
     cursor: pointer;
+}
+
 }
 #enter-btn:hover {
     background: #00ff88;
@@ -250,3 +252,4 @@ h2 {
     .hero-role { font-size: 1.3rem; }
     #about p { font-size: 1rem; line-height: 1.7rem; }
 }
+
