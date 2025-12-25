@@ -1,4 +1,3 @@
-/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -12,9 +11,7 @@ body {
     overflow-x: hidden;
 }
 
-/* --------------------------------------------------
-   TERMINAL INTRO — FULL BLACK, NO LEAK
--------------------------------------------------- */
+/* TERMINAL INTRO */
 #terminal-screen {
     position: fixed;
     top: 0;
@@ -61,9 +58,7 @@ body {
 
 @keyframes fadeIn { to { opacity: 1; } }
 
-/* --------------------------------------------------
-   MATRIX BACKGROUND
--------------------------------------------------- */
+/* MATRIX BG */
 #matrix {
     position: fixed;
     top: 0;
@@ -74,9 +69,7 @@ body {
     z-index: -1;
 }
 
-/* --------------------------------------------------
-   NAVBAR
--------------------------------------------------- */
+/* NAVBAR */
 #navbar {
     position: fixed;
     top: 0;
@@ -92,11 +85,7 @@ body {
     font-size: 2.2rem;
     font-weight: bold;
     color: #00ff88;
-}
-
-/* DESKTOP MENU */
-.desktop-menu {
-    display: flex;
+    cursor: pointer;
 }
 
 .nav-links {
@@ -105,8 +94,8 @@ body {
 }
 
 .nav-links a {
-    text-decoration: none;
     color: #ccffea;
+    text-decoration: none;
     font-size: 1.1rem;
 }
 
@@ -123,9 +112,7 @@ body {
     color: #000;
 }
 
-/* --------------------------------------------------
-   MOBILE MENU ICON
--------------------------------------------------- */
+/* HAMBURGER */
 #hamburger {
     display: none;
     flex-direction: column;
@@ -140,9 +127,7 @@ body {
     border-radius: 5px;
 }
 
-/* --------------------------------------------------
-   MOBILE MENU DROPDOWN
--------------------------------------------------- */
+/* MOBILE MENU */
 #mobile-menu {
     display: none;
     flex-direction: column;
@@ -155,15 +140,13 @@ body {
 }
 
 #mobile-menu a {
-    text-decoration: none;
     color: #00ff88;
     font-size: 1.4rem;
+    text-decoration: none;
     padding: 10px 0;
 }
 
-/* --------------------------------------------------
-   HERO
--------------------------------------------------- */
+/* HERO */
 #hero {
     height: 100vh;
     display: flex;
@@ -188,13 +171,9 @@ body {
     color: #00ff88;
 }
 
-@keyframes blink {
-    50% { opacity: 0; }
-}
+@keyframes blink { 50% { opacity: 0; } }
 
-/* --------------------------------------------------
-   ABOUT / SECTIONS
--------------------------------------------------- */
+/* SECTIONS */
 section {
     padding: 120px 10%;
 }
@@ -205,9 +184,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* --------------------------------------------------
-   SKILLS
--------------------------------------------------- */
+/* SKILLS */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -226,25 +203,31 @@ h2 {
     color: #000;
 }
 
-/* --------------------------------------------------
-   PROJECTS
--------------------------------------------------- */
+/* PROJECTS */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
 }
 
+/* Animated Project Cards */
 .project-card {
     border: 1px solid #00ff88;
+    background: #0f0f0f;
     padding: 20px;
     border-radius: 10px;
-    background: #0f0f0f;
+    text-decoration: none;
+    color: #ccffea;
+    transition: 0.3s ease;
 }
 
-/* --------------------------------------------------
-   CONTACT
--------------------------------------------------- */
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 18px #00ff88aa;
+    background: #102219;
+}
+
+/* CONTACT */
 .contact-buttons {
     margin-top: 20px;
     display: flex;
@@ -259,32 +242,11 @@ h2 {
     text-decoration: none;
 }
 
-/* --------------------------------------------------
-   RESPONSIVE DESIGN
--------------------------------------------------- */
+/* RESPONSIVE */
 @media (max-width: 900px) {
-
-    /* Hide desktop menu */
-    .desktop-menu {
-        display: none;
-    }
-
-    /* Show hamburger */
-    #hamburger {
-        display: flex;
-    }
-
-    /* Reduce hero text */
-    .hero-name {
-        font-size: 2.6rem;
-    }
-    .hero-role {
-        font-size: 1.3rem;
-    }
-
-    /* Improve paragraph readability */
-    #about p {
-        font-size: 1rem;
-        line-height: 1.7rem;
-    }
+    .desktop-menu { display: none; }
+    #hamburger { display: flex; }
+    .hero-name { font-size: 2.6rem; }
+    .hero-role { font-size: 1.3rem; }
+    #about p { font-size: 1rem; line-height: 1.7rem; }
 }
