@@ -4,11 +4,20 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: #000;
     color: #ccffea;
     font-family: Consolas, monospace;
     overflow-x: hidden;
+}
+
+/* HIDDEN */
+.hidden {
+    display: none;
 }
 
 /* TERMINAL */
@@ -37,15 +46,12 @@ body {
 #terminal-text p:nth-child(4) { animation-delay: 2.4s; }
 
 #enter-btn {
-    margin-top: 25px;
-    padding: 12px 40px;
+    margin-top: 30px;
+    padding: 14px 42px;
     border: 2px solid #00ff88;
     background: transparent;
     color: #00ff88;
     border-radius: 8px;
-    opacity: 0;
-    animation: fadeIn 1.4s forwards;
-    animation-delay: 3s;
     cursor: pointer;
 }
 
@@ -60,7 +66,9 @@ body {
     transition: 0.8s ease;
 }
 
-@keyframes fadeIn { to { opacity: 1; } }
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
 
 /* MATRIX */
 #matrix {
@@ -70,14 +78,17 @@ body {
     z-index: -1;
 }
 
-/* NAV */
+/* NAVBAR */
 #navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 18px 50px;
+    padding: 22px 70px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     z-index: 9999;
 }
 
@@ -90,17 +101,19 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 34px;
 }
 
 .nav-links a {
     color: #ccffea;
     text-decoration: none;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
 }
 
 .resume-btn {
     border: 2px solid #00ff88;
-    padding: 8px 20px;
+    padding: 8px 22px;
     border-radius: 6px;
     color: #00ff88;
     text-decoration: none;
@@ -129,7 +142,9 @@ body {
     animation: blink 0.7s infinite;
 }
 
-@keyframes blink { 50% { opacity: 0; } }
+@keyframes blink {
+    50% { opacity: 0; }
+}
 
 /* SECTIONS */
 section {
@@ -159,11 +174,11 @@ h2 {
     margin-bottom: 18px;
 }
 
-/* REVEAL */
+/* SCROLL REVEAL */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: 0.8s ease;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .reveal.visible {
@@ -225,12 +240,4 @@ h2 {
     border-radius: 8px;
     color: #00ff88;
     text-decoration: none;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .desktop-menu { display: none; }
-    #hamburger { display: flex; }
-    .hero-name { font-size: 2.6rem; }
-    .hero-role { font-size: 1.3rem; }
 }
