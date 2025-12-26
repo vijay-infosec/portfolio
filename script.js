@@ -1,107 +1,243 @@
-/* TERMINAL INTRO */
-document.body.classList.add("not-loaded");
-
-const terminalScreen = document.getElementById("terminal-screen");
-const enterBtn = document.getElementById("enter-btn");
-
-enterBtn.addEventListener("click", () => {
-    terminalScreen.classList.add("exit");
-
-    setTimeout(() => {
-        terminalScreen.remove();
-        document.body.classList.remove("not-loaded");
-        document.body.classList.add("loaded");
-    }, 900);
-});
-
-/* MATRIX BACKGROUND */
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
-
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
-
-const letters = "01";
-const size = 16;
-const columns = canvas.width / size;
-const drops = Array.from({ length: columns }, () => 1);
-
-function drawMatrix() {
-    ctx.fillStyle = "rgba(0,0,0,0.08)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = "#00ff88";
-    ctx.font = size + "px Consolas";
-
-    drops.forEach((y, i) => {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * size, y * size);
-        drops[i] = y * size > canvas.height && Math.random() > 0.95 ? 0 : y + 1;
-    });
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-setInterval(drawMatrix, 60);
-
-/* ROLE TYPING */
-const roles = [
-    "Detection Engineering & Threat Hunting",
-    "Malware Analysis & Behavioral Profiling",
-    "SIEM, EDR & SOC Operations",
-    "Network Anomaly & L2 Attack Detection",
-    "Applied ML for Cybersecurity"
-];
-
-let roleIndex = 0;
-let charIndex = 0;
-const typedRole = document.getElementById("typed-role");
-
-function typeRole() {
-    if (charIndex < roles[roleIndex].length) {
-        typedRole.textContent += roles[roleIndex][charIndex++];
-        setTimeout(typeRole, 80);
-    } else {
-        setTimeout(deleteRole, 1200);
-    }
+html {
+    scroll-behavior: smooth;
 }
 
-function deleteRole() {
-    if (charIndex > 0) {
-        typedRole.textContent = roles[roleIndex].slice(0, --charIndex);
-        setTimeout(deleteRole, 40);
-    } else {
-        roleIndex = (roleIndex + 1) % roles.length;
-        setTimeout(typeRole, 300);
-    }
+body {
+    background: #000;
+    color: #ccffea;
+    font-family: Consolas, monospace;
+    overflow-x: hidden;
 }
 
-typeRole();
+/* HIDDEN */
+.hidden {
+    display: none;
+}
 
-/* MOBILE MENU */
-const hamburger = document.getElementById("hamburger");
-const mobileMenu = document.getElementById("mobile-menu");
+/* TERMINAL */
+#terminal-screen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-hamburger.addEventListener("click", () => {
-    mobileMenu.style.display =
-        mobileMenu.style.display === "flex" ? "none" : "flex";
-});
+#terminal-text p {
+    font-size: 1.6rem;
+    color: #00ff88;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    margin: 6px 0;
+}
+
+#terminal-text p:nth-child(1) { animation-delay: 0.3s; }
+#terminal-text p:nth-child(2) { animation-delay: 1s; }
+#terminal-text p:nth-child(3) { animation-delay: 1.7s; }
+#terminal-text p:nth-child(4) { animation-delay: 2.4s; }
+
+#enter-btn {
+    margin-top: 30px;
+    padding: 14px 42px;
+    border: 2px solid #00ff88;
+    background: transparent;
+    color: #00ff88;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#enter-btn:hover {
+    background: #00ff88;
+    color: #000;
+}
+
+#terminal-screen.exit {
+    opacity: 0;
+    transform: scale(1.05);
+    transition: 0.8s ease;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* MATRIX */
+#matrix {
+    position: fixed;
+    inset: 0;
+    opacity: 0.08;
+    z-index: -1;
+}
+
+/* NAVBAR */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 22px 70px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #00ff88;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 34px;
+}
+
+.nav-links a {
+    color: #ccffea;
+    text-decoration: none;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+}
+
+.resume-btn {
+    border: 2px solid #00ff88;
+    padding: 8px 22px;
+    border-radius: 6px;
+    color: #00ff88;
+    text-decoration: none;
+}
+
+/* HERO */
+#hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-name {
+    font-size: 3.8rem;
+    color: #00ffb0;
+}
+
+.hero-role {
+    margin-top: 12px;
+    font-size: 1.8rem;
+}
+
+.cursor {
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* SECTIONS */
+section {
+    padding: 140px 10%;
+    position: relative;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #00ff8855, transparent);
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #00ff88;
+    margin-bottom: 20px;
+}
+
+.about-lead {
+    font-size: 1.2rem;
+    color: #9affd4;
+    margin-bottom: 18px;
+}
 
 /* SCROLL REVEAL */
-const sections = document.querySelectorAll("section");
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
-    });
-}, { threshold: 0.15 });
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-sections.forEach(sec => {
-    sec.classList.add("reveal");
-    observer.observe(sec);
-});
+/* SKILLS */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
 
-/* LOGO SCROLL TOP */
-document.querySelector(".logo").addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
+.skill {
+    border: 1px solid #00ff88;
+    padding: 18px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    background: #00ff88;
+    color: #000;
+}
+
+/* PROJECTS */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    border: 1px solid #00ff88;
+    background: #0f0f0f;
+    padding: 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #ccffea;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 18px #00ff88aa;
+}
+
+/* CONTACT */
+.contact-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.contact-btn {
+    border: 1px solid #00ff88;
+    padding: 10px 25px;
+    border-radius: 8px;
+    color: #00ff88;
+    text-decoration: none;
+}
