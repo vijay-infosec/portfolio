@@ -15,6 +15,40 @@ body {
     overflow-x: hidden;
 }
 
+/* TERMINAL */
+#terminal-screen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#terminal-text .line {
+    color: #00ff88;
+    font-size: 1.6rem;
+    margin: 6px 0;
+    opacity: 0;
+}
+
+#enter-btn {
+    margin-top: 30px;
+    padding: 12px 36px;
+    border: 2px solid #00ff88;
+    background: transparent;
+    color: #00ff88;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+#enter-btn:hover {
+    background: #00ff88;
+    color: #000;
+}
+
 /* MATRIX */
 #matrix {
     position: fixed;
@@ -23,7 +57,7 @@ body {
     z-index: -1;
 }
 
-/* NAVBAR ALIGNMENT FIX */
+/* NAVBAR */
 #navbar {
     position: fixed;
     top: 0;
@@ -126,7 +160,7 @@ section {
     color: #ccffea;
 }
 
-/* CONTACT LINKS */
+/* CONTACT */
 #contact a {
     color: #ccffea;
     text-decoration: none;
