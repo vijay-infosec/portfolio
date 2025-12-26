@@ -1,4 +1,4 @@
-/* TERMINAL INTRO – SAFE, ADDITIVE */
+/* TERMINAL INTRO */
 const termLines = document.querySelectorAll(".term-line");
 const enterBtn = document.getElementById("enter-btn");
 const terminalScreen = document.getElementById("terminal-screen");
@@ -16,31 +16,6 @@ function runTerminal() {
 }
 
 runTerminal();
-
-enterBtn.addEventListener("click", () => {
-    terminalScreen.remove();
-});
-
-/* TERMINAL FLOW – DETERMINISTIC */
-const lines = document.querySelectorAll("#terminal-text .line");
-const terminalText = document.getElementById("terminal-text");
-const enterBtn = document.getElementById("enter-btn");
-const terminalScreen = document.getElementById("terminal-screen");
-
-let i = 0;
-
-function showLine() {
-    if (i < lines.length) {
-        lines[i].style.opacity = "1";
-        i++;
-        setTimeout(showLine, 800);
-    } else {
-        terminalText.remove();
-        enterBtn.style.display = "block";
-    }
-}
-
-showLine();
 
 enterBtn.addEventListener("click", () => {
     terminalScreen.remove();
@@ -101,20 +76,3 @@ function deleteRole() {
 }
 
 typeRole();
-
-/* SCROLL REVEAL */
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
-    });
-}, { threshold: 0.15 });
-
-sections.forEach(section => {
-    section.classList.add("reveal");
-    observer.observe(section);
-});
-
