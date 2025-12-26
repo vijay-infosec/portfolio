@@ -1,19 +1,18 @@
-/* TERMINAL FLOW */
 const terminalText = document.getElementById("terminal-text");
 const enterBtn = document.getElementById("enter-btn");
 const terminalScreen = document.getElementById("terminal-screen");
 
+/* REMOVE TEXT FIRST, THEN SHOW BUTTON */
 setTimeout(() => {
     terminalText.remove();
     enterBtn.classList.remove("hidden");
 }, 4200);
 
 enterBtn.addEventListener("click", () => {
-    terminalScreen.classList.add("exit");
-    setTimeout(() => terminalScreen.remove(), 800);
+    terminalScreen.remove();
 });
 
-/* MATRIX BACKGROUND */
+/* MATRIX */
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
@@ -21,85 +20,50 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const letters = "01";
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = Array.from({ length: columns }, () => 1);
+const size = 16;
+const cols = canvas.width / size;
+const drops = Array.from({ length: cols }, () => 1);
 
-function drawMatrix() {
+setInterval(() => {
     ctx.fillStyle = "rgba(0,0,0,0.08)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#00ff88";
-    ctx.font = fontSize + "px Consolas";
+    ctx.font = size + "px Consolas";
 
     drops.forEach((y, i) => {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, y * fontSize);
-        drops[i] = y * fontSize > canvas.height && Math.random() > 0.95 ? 0 : y + 1;
+        ctx.fillText(letters[Math.floor(Math.random() * 2)], i * size, y * size);
+        drops[i] = y * size > canvas.height ? 0 : y + 1;
     });
-}
-
-setInterval(drawMatrix, 60);
+}, 60);
 
 /* ROLE TYPING */
 const roles = [
-    "Detection Engineering & Threat Hunting",
-    "Malware Analysis & Behavioral Profiling",
-    "SIEM and EDR Operations",
-    "Network Anomaly Detection",
-    "Applied Machine Learning for Cybersecurity"
+    "Detection Engineering",
+    "Malware Analysis",
+    "Threat Hunting",
+    "SIEM & EDR Operations"
 ];
 
-let roleIndex = 0;
-let charIndex = 0;
-const typedRole = document.getElementById("typed-role");
+let r = 0, c = 0;
+const el = document.getElementById("typed-role");
 
-function typeRole() {
-    if (charIndex < roles[roleIndex].length) {
-        typedRole.textContent += roles[roleIndex][charIndex++];
-        setTimeout(typeRole, 80);
+function type() {
+    if (c < roles[r].length) {
+        el.textContent += roles[r][c++];
+        setTimeout(type, 80);
     } else {
-        setTimeout(deleteRole, 1200);
+        setTimeout(erase, 1200);
     }
 }
 
-function deleteRole() {
-    if (charIndex > 0) {
-        typedRole.textContent = roles[roleIndex].slice(0, --charIndex);
-        setTimeout(deleteRole, 40);
+function erase() {
+    if (c > 0) {
+        el.textContent = roles[r].slice(0, --c);
+        setTimeout(erase, 40);
     } else {
-        roleIndex = (roleIndex + 1) % roles.length;
-        setTimeout(typeRole, 300);
+        r = (r + 1) % roles.length;
+        setTimeout(type, 300);
     }
 }
 
-typeRole();
-
-/* SCROLL REVEAL */
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
-    });
-}, { threshold: 0.15 });
-
-sections.forEach(sec => {
-    sec.classList.add("reveal");
-    observer.observe(sec);
-});
-
-/* MOBILE MENU */
-const hamburger = document.getElementById("hamburger");
-const mobileMenu = document.getElementById("mobile-menu");
-
-hamburger.addEventListener("click", () => {
-    mobileMenu.style.display =
-        mobileMenu.style.display === "flex" ? "none" : "flex";
-});
-
-/* LOGO SCROLL TOP */
-document.querySelector(".logo").addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
+type();
