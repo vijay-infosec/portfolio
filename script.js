@@ -1,3 +1,26 @@
+/* TERMINAL INTRO – SAFE, ADDITIVE */
+const termLines = document.querySelectorAll(".term-line");
+const enterBtn = document.getElementById("enter-btn");
+const terminalScreen = document.getElementById("terminal-screen");
+
+let t = 0;
+
+function runTerminal() {
+    if (t < termLines.length) {
+        termLines[t].style.opacity = "1";
+        t++;
+        setTimeout(runTerminal, 800);
+    } else {
+        enterBtn.style.display = "block";
+    }
+}
+
+runTerminal();
+
+enterBtn.addEventListener("click", () => {
+    terminalScreen.remove();
+});
+
 /* TERMINAL FLOW – DETERMINISTIC */
 const lines = document.querySelectorAll("#terminal-text .line");
 const terminalText = document.getElementById("terminal-text");
@@ -94,3 +117,4 @@ sections.forEach(section => {
     section.classList.add("reveal");
     observer.observe(section);
 });
+
