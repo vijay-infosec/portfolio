@@ -5,13 +5,13 @@ const terminalScreen = document.getElementById("terminal-screen");
 const enterBtn = document.getElementById("enter-btn");
 
 enterBtn.addEventListener("click", () => {
-    terminalScreen.style.opacity = "0";
-    terminalScreen.style.transition = "0.8s ease";
+    terminalScreen.classList.add("exit");
 
     setTimeout(() => {
-        terminalScreen.style.display = "none";
+        terminalScreen.remove();
         document.body.classList.remove("not-loaded");
-    }, 800);
+        document.body.classList.add("loaded");
+    }, 900);
 });
 
 /* MATRIX BACKGROUND */
@@ -24,37 +24,31 @@ canvas.width = window.innerWidth;
 const letters = "01";
 const size = 16;
 const columns = canvas.width / size;
+const drops = Array.from({ length: columns }, () => 1);
 
-let drops = [];
-for (let i = 0; i < columns; i++) drops[i] = 1;
-
-function draw() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.06)";
+function drawMatrix() {
+    ctx.fillStyle = "rgba(0,0,0,0.08)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.fillStyle = "#00ff88";
     ctx.font = size + "px Consolas";
 
-    for (let i = 0; i < drops.length; i++) {
-        let text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * size, drops[i] * size);
-
-        if (drops[i] * size > canvas.height && Math.random() > 0.95) {
-            drops[i] = 0;
-        }
-        drops[i]++;
-    }
+    drops.forEach((y, i) => {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * size, y * size);
+        drops[i] = y * size > canvas.height && Math.random() > 0.95 ? 0 : y + 1;
+    });
 }
 
-setInterval(draw, 60);
+setInterval(drawMatrix, 60);
 
-/* ROLE TYPING EFFECT */
+/* ROLE TYPING */
 const roles = [
-    "Threat Detection",
-    "Malware Analysis",
-    "Behavior Analysis",
-    "Adversary Simulation",
-    "Defensive Engineering"
+    "Detection Engineering & Threat Hunting",
+    "Malware Analysis & Behavioral Profiling",
+    "SIEM, EDR & SOC Operations",
+    "Network Anomaly & L2 Attack Detection",
+    "Applied ML for Cybersecurity"
 ];
 
 let roleIndex = 0;
@@ -63,9 +57,8 @@ const typedRole = document.getElementById("typed-role");
 
 function typeRole() {
     if (charIndex < roles[roleIndex].length) {
-        typedRole.textContent += roles[roleIndex][charIndex];
-        charIndex++;
-        setTimeout(typeRole, 90);
+        typedRole.textContent += roles[roleIndex][charIndex++];
+        setTimeout(typeRole, 80);
     } else {
         setTimeout(deleteRole, 1200);
     }
@@ -73,9 +66,8 @@ function typeRole() {
 
 function deleteRole() {
     if (charIndex > 0) {
-        typedRole.textContent = roles[roleIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(deleteRole, 50);
+        typedRole.textContent = roles[roleIndex].slice(0, --charIndex);
+        setTimeout(deleteRole, 40);
     } else {
         roleIndex = (roleIndex + 1) % roles.length;
         setTimeout(typeRole, 300);
@@ -93,7 +85,23 @@ hamburger.addEventListener("click", () => {
         mobileMenu.style.display === "flex" ? "none" : "flex";
 });
 
-/* SCROLL TO TOP ON LOGO CLICK */
+/* SCROLL REVEAL */
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+}, { threshold: 0.15 });
+
+sections.forEach(sec => {
+    sec.classList.add("reveal");
+    observer.observe(sec);
+});
+
+/* LOGO SCROLL TOP */
 document.querySelector(".logo").addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
