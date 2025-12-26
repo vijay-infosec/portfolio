@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
             t++;
             setTimeout(runTerminal, 800);
         } else {
+            document.getElementById("terminal-text").style.display = "none";
             enterBtn.style.display = "block";
         }
     }
@@ -20,7 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     runTerminal();
 
     enterBtn.addEventListener("click", () => {
-        terminalScreen.remove();
+        terminalScreen.style.opacity = "0";
+        terminalScreen.style.transition = "opacity 0.6s ease";
+        setTimeout(() => terminalScreen.remove(), 600);
     });
 
     /* MATRIX BACKGROUND */
@@ -64,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const roleEl = document.getElementById("typed-role");
 
     function typeRole() {
-        if (!roleEl) return;
         if (c < roles[r].length) {
             roleEl.textContent += roles[r][c++];
             setTimeout(typeRole, 80);
