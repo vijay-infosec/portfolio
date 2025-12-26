@@ -5,19 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const enterBtn = document.getElementById("enter-btn");
     const terminalScreen = document.getElementById("terminal-screen");
 
-    let i = 0;
+    let t = 0;
 
-    function showTerminalLine() {
-        if (i < termLines.length) {
-            termLines[i].style.opacity = "1";
-            i++;
-            setTimeout(showTerminalLine, 800);
+    function runTerminal() {
+        if (t < termLines.length) {
+            termLines[t].style.opacity = "1";
+            t++;
+            setTimeout(runTerminal, 800);
         } else {
             enterBtn.style.display = "block";
         }
     }
 
-    showTerminalLine();
+    runTerminal();
 
     enterBtn.addEventListener("click", () => {
         terminalScreen.remove();
@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const letters = "01";
         const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        const drops = Array.from({ length: columns }, () => 1);
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
 
         setInterval(() => {
             ctx.fillStyle = "rgba(0,0,0,0.08)";
@@ -84,5 +84,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     typeRole();
-
 });
