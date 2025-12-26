@@ -55,57 +55,80 @@
 <!-- HERO -->
 <header id="hero">
     <h1 class="hero-name">Vijay Prathap Reddy</h1>
-    <h2 class="hero-role"><span id="typed-role"></span><span class="cursor">█</span></h2>
+    <h2 class="hero-role">
+        <span id="typed-role"></span><span class="cursor">█</span>
+    </h2>
 </header>
 
 <!-- ABOUT -->
 <section id="about">
     <h2>About Me</h2>
+
+    <p class="about-lead">
+        I specialize in detection engineering, malware analysis, and network behavior analysis—building systems that catch what looks normal but behaves wrong.
+    </p>
+
     <p>
-Cybersecurity didn’t start for me as a hobby. It became a discipline when I realised how much can hide behind systems that look normal. Patterns, inconsistencies, and behavioural shifts always point to something deeper, and that changed how I analyse digital environments.
-
-Threats rarely announce themselves—they mimic legitimacy and rely on people not paying attention. That pushed me to examine behaviour critically and treat every anomaly as a signal worth tracing. Working with malware strengthened this mindset: files that appear harmless can behave aggressively when examined closely, teaching me to trust behaviour over appearance.
-
-Today, I focus on defensive mechanisms that understand threats, not just detect them. I model irregular patterns, analyse flow behaviour, and build lightweight AI-driven frameworks designed to expose inconsistencies early. Whether dissecting suspicious activity or designing smarter detection rules, I approach everything with one principle: stay curious, stay critical, and never accept surface-level answers.
+        Cybersecurity became a discipline for me when I realized how much risk hides behind systems that appear legitimate.
+        Threats rarely announce themselves; they blend in. That pushed me toward behavioral analysis, anomaly detection,
+        and defensive engineering that focuses on intent rather than signatures.
+        <br><br>
+        My work spans SOC operations, malware analysis, network anomaly detection, and applied security research,
+        including peer-reviewed work. I focus on building lightweight, explainable detection mechanisms that surface
+        inconsistencies early—before impact.
     </p>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-    <h2>Skills</h2>
+    <h2>Core Skills</h2>
     <div class="skills-grid">
-        <div class="skill">Threat Detection</div>
-        <div class="skill">Malware Analysis</div>
-        <div class="skill">Penetration Testing</div>
-        <div class="skill">Network Security</div>
-        <div class="skill">Behavior Analysis</div>
-        <div class="skill">Python Automation</div>
+        <div class="skill">Detection Engineering (Splunk ES, KQL)</div>
+        <div class="skill">Threat Hunting & Alert Tuning</div>
+        <div class="skill">Malware Analysis (FLARE VM, ANY.RUN)</div>
+        <div class="skill">Network Anomaly Detection (ARP, L2)</div>
+        <div class="skill">SIEM & EDR Operations</div>
+        <div class="skill">Python for Security Automation</div>
+        <div class="skill">MITRE ATT&CK Mapping</div>
+        <div class="skill">Applied ML for Cybersecurity</div>
     </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-    <h2>Projects</h2>
+    <h2>Selected Projects</h2>
     <div class="projects-grid">
 
         <a class="project-card" href="https://github.com/vijay-infosec/rogue-switch-Device-detection-LAN" target="_blank">
             <h3>Rogue Switch & Device Detection (ECCWS 2025)</h3>
-            <p>Research-backed anomaly detection using L2 behaviour, ARP integrity checks & ML classification.</p>
+            <p>
+                Designed and validated L2 anomaly detection using ARP integrity checks,
+                topology monitoring, and ML classification. Peer-reviewed research.
+            </p>
         </a>
 
         <a class="project-card" href="https://github.com/vijay-infosec/CyberSec-Projects-/tree/main/phishing-email-detection-ML" target="_blank">
-            <h3>Phishing Email Detection (ML)</h3>
-            <p>99% accurate LR/RF phishing classifier using TF-IDF and advanced feature engineering.</p>
+            <h3>Phishing Email Detection (Machine Learning)</h3>
+            <p>
+                Built and evaluated LR/RF classifiers with TF-IDF feature engineering,
+                achieving high precision while reducing false positives.
+            </p>
         </a>
 
         <a class="project-card" href="https://github.com/vijay-infosec/CyberSec-Projects-/tree/main/Pentest_on_Fiet_Bulb" target="_blank">
-            <h3>Feit Smart Bulb Pentest (IoT Security)</h3>
-            <p>Security assessment of a Feit Smart Bulb, including API enumeration, firmware analysis, and testing Tuya cloud communication for vulnerabilities.</p>
+            <h3>IoT Security Assessment – Feit Smart Bulb</h3>
+            <p>
+                Conducted API enumeration, firmware analysis, and cloud traffic inspection
+                to identify misconfigurations and attack surface.
+            </p>
         </a>
 
         <a class="project-card" href="https://github.com/vijay-infosec/CyberSec-Projects-/tree/main/Malware-Analysis" target="_blank">
             <h3>Malware Analysis Labs</h3>
-            <p>Hands-on malware analysis using Cuckoo Sandbox, ANY.RUN, ProcMon, Wireshark, and FLARE-VM. Includes behavior profiling, network telemetry, MITRE ATT&CK mapping, IOC extraction, and staged execution tracing.</p>
+            <p>
+                Hands-on behavioral analysis using FLARE VM, Procmon, Wireshark,
+                Cuckoo Sandbox, MITRE ATT&CK mapping, and IOC extraction.
+            </p>
         </a>
 
     </div>
@@ -126,7 +149,3 @@ Today, I focus on defensive mechanisms that understand threats, not just detect 
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
