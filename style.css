@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     background: #000;
     color: #ccffea;
@@ -27,7 +23,7 @@ body {
     align-items: center;
 }
 
-#terminal-text .line {
+#terminal-text .term-line {
     color: #00ff88;
     font-size: 1.6rem;
     margin: 6px 0;
@@ -42,6 +38,7 @@ body {
     color: #00ff88;
     cursor: pointer;
     border-radius: 6px;
+    display: none;
 }
 
 #enter-btn:hover {
@@ -63,24 +60,24 @@ body {
     top: 0;
     width: 100%;
     padding: 22px 70px;
-    background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(6px);
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
     z-index: 9999;
 }
 
 .logo {
-    font-size: 2rem;
     color: #00ff88;
+    font-size: 2rem;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 34px;
+    gap: 32px;
 }
 
 .nav-links a {
@@ -106,12 +103,11 @@ body {
 }
 
 .hero-name {
-    font-size: 3.6rem;
+    font-size: 3.5rem;
     color: #00ffb0;
 }
 
 .hero-role {
-    margin-top: 12px;
     font-size: 1.6rem;
 }
 
@@ -128,23 +124,10 @@ section {
     padding: 140px 10%;
 }
 
-/* SCROLL REVEAL */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* SKILLS + PROJECTS */
 .skills-grid,
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
 }
 
@@ -156,16 +139,26 @@ section {
 }
 
 .project-card {
-    text-decoration: none;
     color: #ccffea;
+    text-decoration: none;
 }
 
 /* CONTACT */
-#contact a {
-    color: #ccffea;
+.contact-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 16px;
+}
+
+.contact-btn {
+    padding: 10px 22px;
+    border: 1px solid #00ff88;
+    border-radius: 6px;
+    color: #00ff88;
     text-decoration: none;
 }
 
-#contact a:hover {
-    text-decoration: underline;
+.contact-btn:hover {
+    background: #00ff88;
+    color: #000;
 }
