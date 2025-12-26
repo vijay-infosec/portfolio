@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="not-loaded">
+<body>
 
 <!-- TERMINAL INTRO -->
 <div id="terminal-screen">
@@ -23,11 +23,11 @@
 <!-- MATRIX BACKGROUND -->
 <canvas id="matrix"></canvas>
 
-<!-- NAVBAR -->
+<!-- NAVBAR (DESKTOP ONLY) -->
 <nav id="navbar">
     <div class="logo">V</div>
 
-    <ul class="nav-links desktop-menu">
+    <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -35,22 +35,8 @@
         <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <a href="Resume.pdf" target="_blank" class="resume-btn desktop-menu">Resume</a>
-
-    <div id="hamburger">
-        <span></span><span></span><span></span>
-    </div>
+    <a href="Resume.pdf" target="_blank" class="resume-btn">Resume</a>
 </nav>
-
-<!-- MOBILE MENU -->
-<div id="mobile-menu">
-    <a href="#hero">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    <a href="Resume.pdf" target="_blank">Resume</a>
-</div>
 
 <!-- HERO -->
 <header id="hero">
@@ -63,15 +49,10 @@
 <!-- ABOUT -->
 <section id="about">
     <h2>About Me</h2>
-
-    <p class="about-lead">
-        I specialize in detection engineering, malware analysis, and network behavior analysis—building systems that catch what looks normal but behaves wrong.
-    </p>
-
     <p>
-        My work focuses on understanding threat behavior rather than relying on surface indicators.
-        I design defensive mechanisms that identify inconsistencies early through anomaly detection,
-        behavioral profiling, and applied security research.
+        Security Analyst with experience across SOC operations, malware analysis, and network anomaly detection.
+        Focused on detection engineering, alert tuning, and behavioral analysis to identify threats that evade
+        signature-based controls.
     </p>
 </section>
 
@@ -79,14 +60,14 @@
 <section id="skills">
     <h2>Core Skills</h2>
     <div class="skills-grid">
-        <div class="skill">Detection Engineering & Threat Hunting</div>
+        <div class="skill">Detection Engineering & Alert Tuning</div>
+        <div class="skill">Threat Hunting & Log Analysis</div>
+        <div class="skill">Malware Analysis (Static & Dynamic)</div>
+        <div class="skill">Network Anomaly Detection</div>
         <div class="skill">SIEM & EDR Operations</div>
-        <div class="skill">Malware Analysis & Behavioral Profiling</div>
-        <div class="skill">Network Anomaly Detection & Switching Attacks</div>
-        <div class="skill">Security Monitoring & Alert Tuning</div>
         <div class="skill">Python for Security Automation</div>
         <div class="skill">MITRE ATT&CK Mapping</div>
-        <div class="skill">Applied Machine Learning for Cybersecurity</div>
+        <div class="skill">Applied Machine Learning for Security</div>
     </div>
 </section>
 
@@ -96,34 +77,25 @@
     <div class="projects-grid">
 
         <a class="project-card" href="https://github.com/vijay-infosec/rogue-switch-Device-detection-LAN" target="_blank">
-            <h3>Rogue Switch & Device Detection (ECCWS 2025)</h3>
+            <h3>Rogue Switch & Device Detection</h3>
             <p>
-                Designed network anomaly detection using topology monitoring,
-                address integrity validation, and machine learning classification.
+                Designed network anomaly detection using topology monitoring, address consistency checks,
+                and machine learning-based classification.
             </p>
         </a>
 
         <a class="project-card" href="https://github.com/vijay-infosec/CyberSec-Projects-/tree/main/phishing-email-detection-ML" target="_blank">
-            <h3>Phishing Email Detection (Machine Learning)</h3>
+            <h3>Phishing Email Detection</h3>
             <p>
-                Built and evaluated classification models using text feature engineering
-                to reduce false positives while maintaining high detection accuracy.
-            </p>
-        </a>
-
-        <a class="project-card" href="https://github.com/vijay-infosec/CyberSec-Projects-/tree/main/Pentest_on_Fiet_Bulb" target="_blank">
-            <h3>IoT Security Assessment – Smart Bulb</h3>
-            <p>
-                Conducted firmware inspection, API testing, and cloud traffic analysis
-                to identify misconfigurations and exposed attack surfaces.
+                Built text-based classification models to detect phishing emails while reducing false positives.
             </p>
         </a>
 
         <a class="project-card" href="https://github.com/vijay-infosec/CyberSec-Projects-/tree/main/Malware-Analysis" target="_blank">
             <h3>Malware Analysis Labs</h3>
             <p>
-                Performed static and dynamic malware analysis using professional tooling,
-                behavior tracing, memory inspection, and indicator extraction.
+                Conducted static and dynamic malware analysis using professional tooling,
+                behavior tracing, and indicator extraction.
             </p>
         </a>
 
@@ -133,13 +105,8 @@
 <!-- CONTACT -->
 <section id="contact">
     <h2>Contact</h2>
-    <p>📞 +1 616-500-4832</p>
     <p>📧 vijayreddypr999@gmail.com</p>
-
-    <div class="contact-buttons">
-        <a class="contact-btn" href="https://linkedin.com/in/vijay-prathap-reddy" target="_blank">LinkedIn</a>
-        <a class="contact-btn" href="https://github.com/vijay-infosec" target="_blank">GitHub</a>
-    </div>
+    <p>📞 +1 616-500-4832</p>
 </section>
 
 <script src="script.js"></script>
