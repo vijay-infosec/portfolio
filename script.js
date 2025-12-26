@@ -1,3 +1,28 @@
+/* TERMINAL FLOW – DETERMINISTIC */
+const lines = document.querySelectorAll("#terminal-text .line");
+const terminalText = document.getElementById("terminal-text");
+const enterBtn = document.getElementById("enter-btn");
+const terminalScreen = document.getElementById("terminal-screen");
+
+let i = 0;
+
+function showLine() {
+    if (i < lines.length) {
+        lines[i].style.opacity = "1";
+        i++;
+        setTimeout(showLine, 800);
+    } else {
+        terminalText.remove();
+        enterBtn.style.display = "block";
+    }
+}
+
+showLine();
+
+enterBtn.addEventListener("click", () => {
+    terminalScreen.remove();
+});
+
 /* MATRIX BACKGROUND */
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
@@ -24,19 +49,18 @@ setInterval(() => {
 
 /* ROLE TYPING */
 const roles = [
-    "Malware Analysis",
     "Detection Engineering",
+    "Malware Analysis",
     "Threat Hunting",
     "SIEM & EDR Operations"
 ];
 
-let roleIndex = 0;
-let charIndex = 0;
-const typedRole = document.getElementById("typed-role");
+let r = 0, c = 0;
+const roleEl = document.getElementById("typed-role");
 
 function typeRole() {
-    if (charIndex < roles[roleIndex].length) {
-        typedRole.textContent += roles[roleIndex][charIndex++];
+    if (c < roles[r].length) {
+        roleEl.textContent += roles[r][c++];
         setTimeout(typeRole, 80);
     } else {
         setTimeout(deleteRole, 1200);
@@ -44,11 +68,11 @@ function typeRole() {
 }
 
 function deleteRole() {
-    if (charIndex > 0) {
-        typedRole.textContent = roles[roleIndex].slice(0, --charIndex);
+    if (c > 0) {
+        roleEl.textContent = roles[r].slice(0, --c);
         setTimeout(deleteRole, 40);
     } else {
-        roleIndex = (roleIndex + 1) % roles.length;
+        r = (r + 1) % roles.length;
         setTimeout(typeRole, 300);
     }
 }
