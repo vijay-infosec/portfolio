@@ -1,4 +1,12 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background: #000;
@@ -37,7 +45,10 @@ body {
     display: none;
 }
 
-#enter-btn:hover { background: #00ff88; color: #000; }
+#enter-btn:hover {
+    background: #00ff88;
+    color: #000;
+}
 
 /* MATRIX */
 #matrix {
@@ -61,7 +72,10 @@ body {
     z-index: 9999;
 }
 
-.logo { color: #00ff88; font-size: 2rem; }
+.logo {
+    color: #00ff88;
+    font-size: 2rem;
+}
 
 .nav-links {
     list-style: none;
@@ -70,7 +84,10 @@ body {
     gap: 32px;
 }
 
-.nav-links a { color: #ccffea; text-decoration: none; }
+.nav-links a {
+    color: #ccffea;
+    text-decoration: none;
+}
 
 .resume-btn {
     border: 2px solid #00ff88;
@@ -89,31 +106,72 @@ body {
     text-align: center;
 }
 
-.hero-name { font-size: 3.5rem; color: #00ffb0; }
-.hero-role { font-size: 1.6rem; }
+.hero-name {
+    font-size: 3.5rem;
+    color: #00ffb0;
+}
 
-.cursor { animation: blink 0.7s infinite; }
-@keyframes blink { 50% { opacity: 0; } }
+.hero-role {
+    font-size: 1.6rem;
+}
+
+.cursor {
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
 
 /* SECTIONS */
-section { padding: 140px 10%; }
+section {
+    padding: 140px 10%;
+}
 
-.skills-grid, .projects-grid {
+/* GRIDS */
+.skills-grid,
+.projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
 }
 
-.skill, .project-card {
+.skill,
+.project-card {
     border: 1px solid #00ff88;
     padding: 18px;
     border-radius: 8px;
 }
 
-.project-card { color: #ccffea; text-decoration: none; }
+/* PROJECT CARD FEEL */
+.project-card {
+    color: #ccffea;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 18px rgba(0,255,136,0.5);
+    background: rgba(0,255,136,0.05);
+}
 
 /* CONTACT */
-.contact-buttons { margin-top: 20px; display: flex; gap: 16px; }
+#contact a {
+    color: #00ff88;
+    text-decoration: none;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+.contact-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 16px;
+}
 
 .contact-btn {
     padding: 10px 22px;
@@ -123,4 +181,7 @@ section { padding: 140px 10%; }
     text-decoration: none;
 }
 
-.contact-btn:hover { background: #00ff88; color: #000; }
+.contact-btn:hover {
+    background: #00ff88;
+    color: #000;
+}
