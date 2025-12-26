@@ -9,21 +9,10 @@
 
 <body>
 
-<!-- TERMINAL INTRO -->
-<div id="terminal-screen">
-    <div id="terminal-text">
-        <p>&gt; Initializing system...</p>
-        <p>&gt; Verifying identity...</p>
-        <p>&gt; Access granted.</p>
-        <p>&gt; Loading portfolio...</p>
-    </div>
-    <button id="enter-btn" class="hidden">Enter Portfolio</button>
-</div>
-
 <!-- MATRIX BACKGROUND -->
 <canvas id="matrix"></canvas>
 
-<!-- NAVBAR (DESKTOP ONLY) -->
+<!-- NAVBAR -->
 <nav id="navbar">
     <div class="logo">V</div>
 
@@ -49,10 +38,28 @@
 <!-- ABOUT -->
 <section id="about">
     <h2>About Me</h2>
+
     <p>
-        Security Analyst with experience across SOC operations, malware analysis, and network anomaly detection.
-        Focused on detection engineering, alert tuning, and behavioral analysis to identify threats that evade
-        signature-based controls.
+        Cybersecurity did not start for me as a casual interest. It became a discipline once I realised how much risk can hide
+        behind systems that appear perfectly normal. Through early analysis of events and behaviour, I learned that digital
+        activity is rarely random—patterns, inconsistencies, and subtle deviations often point to deeper issues.
+    </p>
+
+    <p>
+        This perspective led me to focus on behavioural analysis rather than surface indicators. Threats do not announce
+        themselves; they blend in and mimic legitimacy. To understand this better, I recreated intrusions in controlled
+        environments, which sharpened my ability to recognise early indicators and anticipate malicious behaviour.
+    </p>
+
+    <p>
+        Working extensively with malware further reinforced this mindset. While building and delivering malware analysis labs,
+        I observed how seemingly benign files revealed aggressive behaviour once examined properly. This experience taught me
+        to rely on evidence, correlation, and behaviour rather than appearance.
+    </p>
+
+    <p>
+        Today, I focus on detection engineering, malware analysis, and network anomaly detection—designing defensive mechanisms
+        that not only detect threats but understand them, exposing inconsistencies before they become incidents.
     </p>
 </section>
 
@@ -79,7 +86,7 @@
         <a class="project-card" href="https://github.com/vijay-infosec/rogue-switch-Device-detection-LAN" target="_blank">
             <h3>Rogue Switch & Device Detection</h3>
             <p>
-                Designed network anomaly detection using topology monitoring, address consistency checks,
+                Designed network anomaly detection using topology monitoring, address consistency validation,
                 and machine learning-based classification.
             </p>
         </a>
@@ -91,11 +98,19 @@
             </p>
         </a>
 
+        <a class="project-card" href="https://github.com/vijay-infosec/CyberSec-Projects-/tree/main/Pentest_on_Fiet_Bulb" target="_blank">
+            <h3>IoT Security Assessment – Smart Bulb</h3>
+            <p>
+                Conducted firmware inspection, API testing, and cloud traffic analysis
+                to identify exposed attack surfaces.
+            </p>
+        </a>
+
         <a class="project-card" href="https://github.com/vijay-infosec/CyberSec-Projects-/tree/main/Malware-Analysis" target="_blank">
             <h3>Malware Analysis Labs</h3>
             <p>
-                Conducted static and dynamic malware analysis using professional tooling,
-                behavior tracing, and indicator extraction.
+                Performed static and dynamic malware analysis using professional tooling,
+                behaviour tracing, and indicator extraction.
             </p>
         </a>
 
@@ -105,8 +120,8 @@
 <!-- CONTACT -->
 <section id="contact">
     <h2>Contact</h2>
-    <p>📧 vijayreddypr999@gmail.com</p>
-    <p>📞 +1 616-500-4832</p>
+    <p>📧 <a href="mailto:vijayreddypr999@gmail.com">vijayreddypr999@gmail.com</a></p>
+    <p>📞 <a href="tel:+16165004832">+1 616-500-4832</a></p>
 </section>
 
 <script src="script.js"></script>
