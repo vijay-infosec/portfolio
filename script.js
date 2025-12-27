@@ -86,4 +86,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     typeRole();
+
+    /* LOGO CLICK → TOP */
+    const logo = document.querySelector(".logo");
+    if (logo) {
+        logo.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+
+    /* SECTION SCROLL REVEAL */
+    const sections = document.querySelectorAll("section");
+
+    const revealObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        },
+        { threshold: 0.15 }
+    );
+
+    sections.forEach(section => {
+        section.classList.add("reveal");
+        revealObserver.observe(section);
+    });
 });
